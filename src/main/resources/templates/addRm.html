@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add a Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!--    <link rel="stylesheet" href="/static/css/shards.min.css">-->
+
+
+</head>
+<body style="background-color:palegoldenrod;">
+
+<div class="container" style="background-color: white">
+        <div th:insert="header :: navbar">  </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <h3>Add Raw Materials</h3>
+            <form action="#" th:action="@{/saveRM}" th:object="${rm}" method="post">
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <label for="name" class="col-form-label">Item Name</label>
+                        <input type="text" th:field="*{rm_name}" class="form-control" id="name" placeholder="Name" required>
+                    </div>
+<!--                    <div class="form-group col-md-8">-->
+<!--&lt;!&ndash;                        <label for="BOM">Smallest Unit of Measure</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <select id="BOM" class="form-control" th:field="*{rm_unit}" required>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <option value=""></option>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <option value="mts">mtrs</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <option value="in">in</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <option value="cm">cm</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <option value="roll">Roll</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                             <option value="pcs">pcs</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </select>&ndash;&gt;-->
+<!--                    </div>-->
+                    <div class="form-group col-md-8">
+                        <label for="name" class="col-form-label">Cost Per Unit</label>
+                        <input type="text" th:field="*{rm_cost}" class="form-control" id="price" placeholder="Name" required>
+                    </div>
+
+                    <div class="form-group col-md-8">
+                        <input type="submit" class="btn btn-primary" value="Add Item">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</body>
+</html>
