@@ -33,8 +33,13 @@ public class FileHandlerService {
     @Autowired
     private CogRepo cogRepo;
 
-    public void save(String name) {
-        List<RawMaterial> rawMaterialList = FileHandlerCSV.processRawMCSV(name);
+    public void save(MultipartFile name) {
+        List<RawMaterial> rawMaterialList = null;
+        try {
+            rawMaterialList = FileHandlerCSV.processRawMCSV(name.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         rmRepository.saveAll(rawMaterialList);
     }
 

@@ -29,11 +29,12 @@ public class FileHandlerCSV {
 
 
 
-    public static List<RawMaterial> processRawMCSV(String fileName) {
-        String path =DOCUMENT_ROOT.concat(fileName);
+    public static List<RawMaterial> processRawMCSV(InputStream fileName) {
+        //String path =DOCUMENT_ROOT.concat(fileName);
         List<RawMaterial> materialList = new ArrayList<>();
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(path) );
+                //Reader reader = Files.newBufferedReader(Paths.get(path));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(fileName, "UTF-8"));
                 CSVParser csvParser = new CSVParser(reader, CSVFormat.RFC4180 .withFirstRecordAsHeader().withHeader("rm_cost", "rm_name")
                         .withIgnoreHeaderCase()
                         .withTrim());

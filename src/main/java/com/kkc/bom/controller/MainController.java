@@ -149,7 +149,7 @@ public class MainController {
 
     @PostMapping("/uploadRM")
     public String uploadFile(@RequestParam("file") MultipartFile file) {
-        fileHandlerService.save(file.getOriginalFilename());
+        fileHandlerService.save(file);
 //        model.addAttribute("import", fileHandlerService.save(file.getOriginalFilename()));
         return "/rawMaterials";
         }
